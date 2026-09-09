@@ -100,75 +100,73 @@
     }
   };
  // PHOTOS OF ARMADILOS 
-const designedProductsImageURLs = {
-
-  armadilo : {
-  IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN.png?v=1744208187",
-  MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS.png?v=1744208187",
-  EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX.png?v=1744208187",
-  SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY.png?v=1744208173",
-  CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR.png?v=1744208185",
-  AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN.png?v=1744208254",
-  SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD.png?v=1744208186",
-  CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL.png?v=1744208187",
-  CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM.png?v=1744208185",
-  OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM.png?v=1744208186",
-  AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB.png?v=1744216274"
-  },
-  bear : {
-    IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_bear.webp?v=1755803621",
-    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_Bear.webp?v=1755864752",
-    EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_bear.webp?v=1755803538",
-    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_Bear.webp?v=1755864738",
-    CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_bear.webp?v=1755803593",
-    AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_bear.png?v=1755803414",
-    SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_bear.webp?v=1755803493",
-    CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_bear.webp?v=1755803578",
-    CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_bear.webp?v=1755803512",
-    OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_bear.webp?v=1755803555",
-    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_bear.webp?v=1755803376"
-  },
-
-  badger : {
-    IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_Badger.webp?v=1755864493",
-    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_Badger.png?v=1762436347",
-    EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_Badger.webp?v=1755864524",
-    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_Badger.webp?v=1755864431",
-    CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_Badger.webp?v=1755864479",
-    AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_Badger.webp?v=1755864565",
-    SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_Badger.webp?v=1755864443",
-    CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_Badger.webp?v=1755864550",
-    CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_Badger.webp?v=1755864465",
-    OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_Badger.webp?v=1755864506",
-    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/amb_new_badger.png?v=1756968717"
-  },
-  hedgehog : {
-        IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_5a75cd0c-6473-4a58-b938-8af21eb777c7.jpg?v=1777839844",
-        MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_eccdd0a1-a8e8-42df-9ca6-6062af529729.jpg?v=1777839845",
-        EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_f974c7d5-7124-4025-be76-03208374f08a.jpg?v=1777839844",
-        SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_4ed3b150-48fb-4ebe-9548-23c612e03441.jpg?v=1777839844",
-        CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_485d46a3-bd49-4831-823d-b9da41bc3402.jpg?v=1777839844",
-        AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_a351d136-39d3-4bec-80c5-58160ed61e61.jpg?v=1777839844",
-        SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_b98c8647-6f50-41e7-9e7f-9bd283474773.jpg?v=1777839844",
-        CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_cba2eea3-7ea3-4fda-8b8e-a70171414d9b.jpg?v=1777839844",
-        CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_d9cbb3ab-8b84-41fb-a95b-bf122b6946a5.jpg?v=1777839843",
-        OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_48802f92-0077-4cd5-99f9-09d0969c3533.jpg?v=1777839843",
-        AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_b68acd6f-196c-4212-87b2-05a7576fccc1.jpg?v=1777839844"
-    },
-    capybara : {
-        IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_1886255a-fe89-4529-927f-ea928b4a233b.jpg?v=1777840028",
-        MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_fa20a4fb-87d0-4a0b-8a05-57b35f423544.jpg?v=1777840028",
-        EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_683d1e37-4a93-4823-ae8c-24e7d8742962.jpg?v=1777840028",
-        SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_974f0ead-2b4c-4958-9f7e-441326728021.jpg?v=1777840028",
-        CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_c4f94e71-597a-4dfe-a610-c96531345dcb.jpg?v=1777840027",
-        AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_ecdc3c3e-a438-45d5-9c92-40231ffc096d.jpg?v=1777840029",
-        SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_e41a1013-03b3-4acd-9233-a1a6d5f9c661.jpg?v=1777840028",
-        CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_ea75b1e0-2e3b-496c-a57a-b059d1fa2efd.jpg?v=1777840028",
-        CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_8962ddd1-0fa6-4004-9b3d-4b4836a02cdb.jpg?v=1777840027",
-        OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_c965154a-d1a1-4683-94d2-ef8fef595af2.jpg?v=1777840027",
-        AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_06e2e682-1ee4-4318-a22b-10f705e96226.jpg?v=1777840028"
-    },
-};
+    export const designedProductsImageURLs = {
+        "armadillo": {
+            "AMB": "https://www.dropbox.com/scl/fi/m6ey3nvmz5en2y5cp9b5p/armadillo_ambivert.png?rlkey=odelwegnotcrw53iz8jq6y5va&dl=0",
+            "AN": "https://www.dropbox.com/scl/fi/wv1e9r012y5ih67x5wmlm/armadillo_anxious.png?rlkey=smto3357u0zn7zl2x8u7xfqyh&dl=0",
+            "CL": "https://www.dropbox.com/scl/fi/kxbhb6sq3f96rsxjdwjwf/armadillo_careless.png?rlkey=6gvxxfa53fzpaqdjeok9kc122&dl=0",
+            "CM": "https://www.dropbox.com/scl/fi/795hrosm7k8bnunlcikx8/armadillo_closed_minded.png?rlkey=evqwen7i9r8gz2i7d42gjmxw5&dl=0",
+            "CR": "https://www.dropbox.com/scl/fi/om9xvhgqls3r2ahtutwhc/armadillo_critical.png?rlkey=zhxq8v6b6jtxggu1613fkdfq9&dl=0",
+            "EX": "https://www.dropbox.com/scl/fi/qbzt4d2znjs2espnjnjas/armadillo_extraverted.png?rlkey=m3o495hmr7y6micqfiorb28ve&dl=0",
+            "IN": "https://www.dropbox.com/scl/fi/iz04ha064phh9vwujvnrg/armadillo_introverted.png?rlkey=2lhhdxqmy6r80i8vvhfmk64su&dl=0",
+            "MS": "https://www.dropbox.com/scl/fi/bjjpqw5dyser8667z1qfm/armadillo_mentally_stable.png?rlkey=lc06db562of3o0z01js454mkk&dl=0",
+            "OM": "https://www.dropbox.com/scl/fi/i62ap6ob3y417cw1bhgwg/armadillo_open_minded.png?rlkey=wdqv1zf5j0p7rspmt2ahkahbf&dl=0",
+            "SD": "https://www.dropbox.com/scl/fi/d1nm5qw8nphwdzzkoaud0/armadillo_self_discipline.png?rlkey=udoqll706fjjrpjsnc4sc68ju&dl=0",
+            "SY": "https://www.dropbox.com/scl/fi/m9y14iruletu9l3ta1nol/armadillo_sympathetic.png?rlkey=dg3wd09k7wf7k7vlx8yro7hxc&dl=0"
+        },
+        "bear": {
+            "AMB": "https://www.dropbox.com/scl/fi/c2bew22q7e0mzmhazq7jz/bear_ambivert.png?rlkey=y4qrum28icb1563dyjifx26mq&dl=0",
+            "AN": "https://www.dropbox.com/scl/fi/wv6dmcdnxvcngy52yyq59/bear_anxious.png?rlkey=ptde7ng6tx56rhalk7i4zfzuf&dl=0",
+            "CL": "https://www.dropbox.com/scl/fi/nbbawazbt4mfk371ubwgu/bear_careless.png?rlkey=ei2uw8k1v8s9jrnzw0egqg7bn&dl=0",
+            "CM": "https://www.dropbox.com/scl/fi/syfudhvgzl3diidctrk3o/bear_closed_minded.png?rlkey=bktqzs27m8qu6grhb7ebvd526&dl=0",
+            "CR": "https://www.dropbox.com/scl/fi/kji47i6ayoyagurln1rkh/bear_critical.png?rlkey=p8hyxi8x8asn1v9lyw4ygexpd&dl=0",
+            "EX": "https://www.dropbox.com/scl/fi/p62rkhdwap4w9jmhsuo07/bear_extraverted.png?rlkey=s2o8kb9513rxovtm9nej56ysz&dl=0",
+            "IN": "https://www.dropbox.com/scl/fi/yayxf5bm9fi4nk6rlrdt7/bear_introverted.png?rlkey=f8i1tiggsfuz3r7k4xecvz14r&dl=0",
+            "MS": "https://www.dropbox.com/scl/fi/wkiu2cyotpcr4btbod4i1/bear_mentally_stable.png?rlkey=qeh6jfrag6pdzohdtddetws5n&dl=0",
+            "OM": "https://www.dropbox.com/scl/fi/mp75812m22m6pzmc3axor/bear_open_minded.png?rlkey=wc0mfwzdcy2zxlqluprducw7f&dl=0",
+            "SD": "https://www.dropbox.com/scl/fi/84448jzslecn7wp6b5be2/bear_self_discipline.png?rlkey=0pp6vse0yalkw2bz6gitgfilv&dl=0",
+            "SY": "https://www.dropbox.com/scl/fi/39q06b49jp90x066i3rcg/bear_sympathetic.png?rlkey=omyuaqtzk1yeyisqbldjrumb8&dl=0"
+        },
+        "badger": {
+            "AMB": "https://www.dropbox.com/scl/fi/ydygn47cl3sykor3xd7bv/badger_ambivert.png?rlkey=jmahj41uua3d6vfp5qvssy8xj&dl=0",
+            "AN": "https://www.dropbox.com/scl/fi/1zqep6ierc8nyuddgcjes/badger_anxious.png?rlkey=pxzf3ccisgcmfdela6xkezkq7&dl=0",
+            "CL": "https://www.dropbox.com/scl/fi/1284ocwnrlmn923ftfygd/badger_careless.png?rlkey=d3nqn3p9xbmqrwu5owkttelxk&dl=0",
+            "CM": "https://www.dropbox.com/scl/fi/tm8iv8w56vm9aw0numvmi/badger_closed_minded.png?rlkey=4dcwpbb8wqfs9ko3ifnyhg3p3&dl=0",
+            "CR": "https://www.dropbox.com/scl/fi/tb2hn1yuazvsx9p98gn4e/badger_critical.png?rlkey=2a15syxdhhzp7dswylzuxc5lp&dl=0",
+            "EX": "https://www.dropbox.com/scl/fi/hnl9qcrobh7skx5a77chl/badger_extraverted.png?rlkey=s3m4a55sr55i5seubku4tos66&dl=0",
+            "IN": "https://www.dropbox.com/scl/fi/jobtyglmsdth5gaq25zg7/badger_introverted.png?rlkey=40ct8c5iqtnizg01j1kefh598&dl=0",
+            "MS": "https://www.dropbox.com/scl/fi/aivkdk2ezw2mcmrovzgfd/badger_mentally_stable.png?rlkey=7px6pablpq5xazf5parqj87x2&dl=0",
+            "OM": "https://www.dropbox.com/scl/fi/il3l0gsenf12u2dl4f833/badger_open_minded.png?rlkey=big1p67xhtdztqkix6m8ms24u&dl=0",
+            "SD": "https://www.dropbox.com/scl/fi/ks9v6gs5rnykmoaj8qyd4/badger_self_discipline.png?rlkey=kmwtxc2g2o2yd01ozhgwp51yk&dl=0",
+            "SY": "https://www.dropbox.com/scl/fi/h4czhoucp614wfi4lr254/badger_sympathetic.png?rlkey=ldar5vvjh7fot3vujvpzg7xbf&dl=0"
+        },
+        "hedgehog": {
+            "AMB": "https://www.dropbox.com/scl/fi/d05ticijq69konp7omfms/hedgehog_ambivert.png?rlkey=0w08fkl1117aepg6sj6gny9bj&dl=0",
+            "AN": "https://www.dropbox.com/scl/fi/8ij2i1ay7ktfxb1ehzh42/hedgehog_anxious.png?rlkey=q8hwl30vsdfflefckbr38bqmh&dl=0",
+            "CL": "https://www.dropbox.com/scl/fi/cpv3gum1c46f3pa2wpcsy/hedgehog_careless.png?rlkey=30wronvwtw4zq0luxr3a8ig46&dl=0",
+            "CM": "https://www.dropbox.com/scl/fi/xxwn4geggizqduowvavkf/hedgehog_closed_minded.png?rlkey=kref175otwqo1weiouvyjmt5r&dl=0",
+            "CR": "https://www.dropbox.com/scl/fi/yf01nlco6tpago95s6mt9/hedgehog_critical.png?rlkey=0dr0as59ob0xpskb4rnnw3mfo&dl=0",
+            "EX": "https://www.dropbox.com/scl/fi/dh58cdogasaa2d45xvsw9/hedgehog_extraverted.png?rlkey=rv8yu9ztkwe78cwg2uq64dhoq&dl=0",
+            "IN": "https://www.dropbox.com/scl/fi/w2cb2ty19eb2nkkowwwrw/hedgehog_introverted.png?rlkey=sbg7i4fh6af4x04ziqv1z0g9e&dl=0",
+            "MS": "https://www.dropbox.com/scl/fi/zrzzq6p256ba05ay1b7up/hedgehog_mentally_stable.png?rlkey=djlvmveclln6qsjewo9cyhhb6&dl=0",
+            "OM": "https://www.dropbox.com/scl/fi/6ytbvespms29vjd9v1g97/hedgehog_open_minded.png?rlkey=uy72okt19alhr97ixwfqmplvl&dl=0",
+            "SD": "https://www.dropbox.com/scl/fi/okyegrsjcaqfm2p8o5krz/hedgehog_self_discipline.png?rlkey=jxdp3e42zikec0h9l88qtf3ex&dl=0",
+            "SY": "https://www.dropbox.com/scl/fi/v0u4vi3m3u6slrf1y8ee0/hedgehog_sympathetic.png?rlkey=by8yermb51ridcmclr9n0gjn6&dl=0"
+        },
+        "capybara": {
+            "AMB": "https://www.dropbox.com/scl/fi/ptcq51db32umxrw21f4zs/capybara_ambivert.png?rlkey=ltlhr2h82fpptfkanrnb43di6&dl=0",
+            "AN": "https://www.dropbox.com/scl/fi/eudhe5l26qqz7zfhowgc3/capybara_anxious.png?rlkey=witudyq7ywzoz04os1olyvhhj&dl=0",
+            "CL": "https://www.dropbox.com/scl/fi/4i6xr4k35y7hn1cli1blf/capybara_careless.png?rlkey=pa9ol5nqseugl0nashxjx2fo0&dl=0",
+            "CM": "https://www.dropbox.com/scl/fi/xx4f7lf74ehwwav4ob9k6/capybara_closed_minded.png?rlkey=euqsghihyrhnqmrbqjkdhbkd7&dl=0",
+            "CR": "https://www.dropbox.com/scl/fi/6txj5og3v5qb3hlnx86qq/capybara_critical.png?rlkey=hkrx9gwt24l4v09ds32u8j1fk&dl=0",
+            "EX": "https://www.dropbox.com/scl/fi/bqrkxv9i59dxwb82a43bq/capybara_extraverted.png?rlkey=w189hn5xsajmdlqpy7r1xq4lj&dl=0",
+            "IN": "https://www.dropbox.com/scl/fi/kdadl1p85zsjojwgc2n7m/capybara_introverted.png?rlkey=znyyo346k7u1kwhoytz07fjfs&dl=0",
+            "MS": "https://www.dropbox.com/scl/fi/og0q4lgzvd8gng88q1fqa/capybara_mentally_stable.png?rlkey=if7bbmuauoh9bukoqfbr0qa87&dl=0",
+            "OM": "https://www.dropbox.com/scl/fi/6y5315abpt8cwc8gqxewj/capybara_open_minded.png?rlkey=qiyq6pdtj5l1dtpulo6mut05m&dl=0",
+            "SD": "https://www.dropbox.com/scl/fi/ehv8bfr3ak9efr7ouojbe/capybara_self_discipline.png?rlkey=6pm9njx9l8g34jlwotdm97qd5&dl=0",
+            "SY": "https://www.dropbox.com/scl/fi/7xwwjwgsr3pr8vlzap82i/capybara_sympathetic.png?rlkey=96woblgysym9vjs68qb47ua1c&dl=0"
+        }
+    };
 
 // PERSONALITY FROM A PHOTO (OPPOSITE OF PREVIOUS MAP)
 const designedProductsURLsToPersonality = {
