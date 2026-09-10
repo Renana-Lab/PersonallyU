@@ -169,19 +169,68 @@ const designedProductsImageURLs = {
     };
 
 
-// PERSONALITY FROM A PHOTO (OPPOSITE OF PREVIOUS MAP)
+// PERSONALITY FROM A PHOTO (REVERSE MAP OF DESIGNEDPRODUCTSIMAGEURL)
 const designedProductsURLsToPersonality = {
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN.png?v=1744208187": "IN",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS.png?v=1744208187": "MS",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX.png?v=1744208187": "EX",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY.png?v=1744208173": "SY",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR.png?v=1744208185": "CR",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN.png?v=1744208254": "AN",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD.png?v=1744208186": "SD",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL.png?v=1744208187": "CL",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM.png?v=1744208185": "CM",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM.png?v=1744208186": "OM",
-  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB.png?v=1744216274": "AMB"
+  // Armadillo
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_introverted_a6d5d139-e0de-41f9-aae2-dd23f01f7dbc.png?v=1789030911": "IN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_extraverted_25a6f03a-e6cf-43c7-a05f-6a7206e00ba8.png?v=1789030916": "EX",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_sympathetic_1f492b84-b79f-4d2f-b942-a3ca9d028930.png?v=1789030920": "SY",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_critical_3fef3739-847c-4f7d-a6ff-ff3a585ca409.png?v=1789030924": "CR",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_mentally_stable_6114d516-d9d6-4306-9427-c717c712761d.png?v=1789030928": "MS",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_anxious_1616823a-ed1d-4441-96b4-9163bb4d9790.png?v=1789030933": "AN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_self_discipline_d3832c5f-a3db-41c8-bd03-222bbcb4bc55.png?v=1789030938": "SD",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_careless_0b633bcd-e977-4492-a65a-7221cf9c84f5.png?v=1789030942": "CL",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_closed_minded_e6585d18-be04-41bc-b804-27d3a7da3894.png?v=1789030946": "CM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_open_minded_db0e5892-6737-4669-adc0-55235b4861e5.png?v=1789030951": "OM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_ambivert_0813497d-8a2c-4f7c-8179-33eec8a1dd7e.png?v=1789030955": "AMB",
+  // Bear
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_introverted_08cb07ac-7bc7-4002-b503-93b532b3b87a.png?v=1789030959": "IN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_extraverted_6b7f252a-3518-464b-8593-bd1e3c447c16.png?v=1789030963": "EX",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_sympathetic_b01c6a80-3e80-44c5-8354-d67d41f88505.png?v=1789030968": "SY",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_critical_4c755174-27a1-42cc-961f-46e9251b1233.png?v=1789030973": "CR",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_mentally_stable_aa41803c-ff6b-46e5-80d1-5c9790cc56ca.png?v=1789030976": "MS",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_anxious_9927045e-d779-4c01-b3e7-02e490940ce2.png?v=1789030980": "AN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_self_discipline_b603e369-2241-491f-b50e-298c75eb6cdb.png?v=1789030985": "SD",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_careless_b7aa60cc-a9d1-4c69-957c-bced5fd45d3f.png?v=1789030989": "CL",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_closed_minded_39805760-0227-43bf-a7ad-4f4281df0235.png?v=1789030993": "CM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_open_minded_819b1fca-e351-4b0f-abce-f72e621c2292.png?v=1789030998": "OM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/bear_ambivert_9dfb1caf-c23d-4d4d-98ca-48369ccf907e.png?v=1789031002": "AMB",
+  // Badger
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_introverted_3819bf4c-6ae3-41e0-bf73-99b2d614c434.png?v=1789031007": "IN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_extraverted_6bdaa68c-e682-4663-b237-b4cace536be5.png?v=1789031011": "EX",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_sympathetic_49cec0a2-ee52-4a7c-ab8f-884038bcc452.png?v=1789031015": "SY",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_critical_d5f0fe62-1206-48b9-bda4-1d21967223aa.png?v=1789031019": "CR",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_mentally_stable_9781fea1-8e69-4677-b40d-afd2339d7a5e.png?v=1789031024": "MS",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_anxious_c9058028-3594-44c4-aaa6-a563a23bb9cf.png?v=1789031029": "AN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_self_discipline_c43a7686-c25a-46b7-9492-9510c73f78e9.png?v=1789031033": "SD",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_careless_d1a0efc7-546b-4925-93a1-2c388246f1e3.png?v=1789031037": "CL",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_closed_minded_9f549943-c8f0-42e4-821a-4a4add25cdc3.png?v=1789031041": "CM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_open_minded_75e6848a-64c6-4659-8737-5565a4987361.png?v=1789031045": "OM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/badger_ambivert_91278469-a374-4f4c-840a-66185dd35456.png?v=1789031050": "AMB",
+  // Hedgehog
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_introverted_9e33a212-08a8-4701-94f7-b50591d5521a.png?v=1789031055": "IN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_extraverted_619b6a3e-9c37-47fe-8b9b-eca96a85fe88.png?v=1789031059": "EX",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_sympathetic_ee1a6ab4-e792-4f05-9693-a4723dc684ec.png?v=1789031063": "SY",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_critical_df608903-8e82-42db-ba97-6f47e4fe0198.png?v=1789031067": "CR",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_mentally_stable_233d17b7-37d0-4e62-bcb3-4ef85a506d69.png?v=1789031071": "MS",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_anxious_83cb84d4-bc2c-4493-952e-dab3c53098c7.png?v=1789031075": "AN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_self_discipline_43a943d2-d248-4be7-8bd8-55510cee45fc.png?v=1789031080": "SD",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_careless_2f3eb140-db3a-4ba0-b3e8-cf2eedfcf3e5.png?v=1789031083": "CL",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_closed_minded_8d060f67-6633-4b42-8d66-05905ce6ce81.png?v=1789031087": "CM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_open_minded_c3f99f9e-cdc4-46c8-9694-0240182deb82.png?v=1789031091": "OM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/hedgehog_ambivert_2965db94-5671-46f4-986a-37e69118987e.png?v=1789031096": "AMB",
+  // Capybara
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_introverted_b783f2fb-3e78-41be-89d4-0cf35d7b4982.png?v=1789031099": "IN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_extraverted_1f1bfb6a-69dc-4109-be6f-9bcbad40b2e5.png?v=1789031103": "EX",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_sympathetic_4a8596bd-84b8-4b1b-8aca-8be3852e02d5.png?v=1789031108": "SY",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_critical_999b3a4a-a913-495c-b55b-c0d9eb9c5cc4.png?v=1789031113": "CR",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_mentally_stable_9df5bf13-8410-4c82-9430-d6ef0fcbe738.png?v=1789031119": "MS",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_anxious_e9359318-8557-43c7-be2d-c981001e080c.png?v=1789031123": "AN",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_self_discipline_73d169ef-f71b-4e11-963d-6bfc8435246e.png?v=1789031127": "SD",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_careless_831c517e-1a4b-4274-b0cd-6d6114988848.png?v=1789031131": "CL",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_closed_minded_e5602152-7026-4dfb-8701-9eaf2806049a.png?v=1789031134": "CM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_open_minded_f60ca50d-38e8-4115-9403-37a3e7595409.png?v=1789031138": "OM",
+  "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/capybara_ambivert_7071adc8-1383-462b-af16-a4484563c781.png?v=1789031142": "AMB"
 };
 
 // PHOTOS OF PRODUCTS WITHOUT DESIGN
