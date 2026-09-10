@@ -429,39 +429,41 @@ function getImageURLs() {
     const urls = getImageURLs();
     for (let i = 0; i < urls.length; i++) {
         if (!urls[i]) return;
-    }  
-    const designs = urls.map((url, i) => ({
-      for: `template--18147309650102__main-1-${i}`,
-      url
-    }));
+    }
 
+    const labels = document.querySelectorAll('label[for^="template--"][for*="__main-1-"]');
+    if (labels.length === 0) {
+      console.warn("updateLabels: No variant labels found");
+      return;
+    }
 
-    designs.forEach(({ for: id, url }) => {
-      const label = document.querySelector(`label[for="${id}"]`);
-      // label.style.color = "#1B1818";
-      if (label && !label.querySelector(`img[data-design="${id}"]`)) {
-          label.style.color = "#1B1818";
-          label.style.backgroundColor = "#F1EEE6";
-          label.style.border = "1px solid rgba(27, 24, 24, 0.55)";
-          label.childNodes[0].textContent = '';
-          label.style.padding = "3px";
-          label.style.borderRadius = "25px";
+    labels.forEach((label, i) => {
+      if (!urls[i]) return;
 
-        const img = document.createElement("img");
-        
-        img.src = url;
-        const imgPersonality = designedProductsURLsToPersonality[url] ?? "noPersonality";
-        img.about = imgPersonality;
-        img.height = 118
-        img.width = 118;
-        img.alt = imgPersonality !== "noPersonality" ? imgPersonality + " personality design" : "Product design";
-        img.dataset.design = id;
-        img.style.borderRadius = "25px";
-        img.classList.add("label-image");
-
-        label.appendChild(img);
-        // console.log("🔄 Updated label with image:", img);
+      const labelId = label.getAttribute('for');
+      if (label.querySelector(`img[data-design="${labelId}"]`)) {
+        return;
       }
+
+      label.style.color = "#1B1818";
+      label.style.backgroundColor = "#F1EEE6";
+      label.style.border = "1px solid rgba(27, 24, 24, 0.55)";
+      label.childNodes[0].textContent = '';
+      label.style.padding = "3px";
+      label.style.borderRadius = "25px";
+
+      const img = document.createElement("img");
+      img.src = urls[i];
+      const imgPersonality = designedProductsURLsToPersonality[urls[i]] ?? "noPersonality";
+      img.about = imgPersonality;
+      img.height = 118;
+      img.width = 118;
+      img.alt = imgPersonality !== "noPersonality" ? imgPersonality + " personality design" : "Product design";
+      img.dataset.design = labelId;
+      img.style.borderRadius = "25px";
+      img.classList.add("label-image");
+
+      label.appendChild(img);
     });
   }  
 
