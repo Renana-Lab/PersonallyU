@@ -100,7 +100,7 @@
     }
   };
  // PHOTOS OF ARMADILOS
-    export const designedProductsImageURLs = {
+const designedProductsImageURLs = {
         "armadillo": {
             "IN": "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_introverted_a6d5d139-e0de-41f9-aae2-dd23f01f7dbc.png?v=1789030911",
             "EX": "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/armadillo_extraverted_25a6f03a-e6cf-43c7-a05f-6a7206e00ba8.png?v=1789030916",
@@ -351,7 +351,7 @@ function getImageURLs() {
   }
 
   const designArmadiloURLs = designKeys.map(
-    key => designedProductsImageURLs["armadilo"][key] || null
+    key => designedProductsImageURLs["armadillo"][key] || null
   );
 
   const designBearURLs = designKeys.map(
