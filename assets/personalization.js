@@ -327,7 +327,424 @@ function observeAndCleanSearchInput() {
     childList: true,
     subtree: true
   });
-} 
+}
+
+
+
+    function initVariantMockupGallery()  {
+        // =====================================================
+        // 1. CLEANUP PREVIOUS TEST
+        // =====================================================
+
+        window.cleanupMockupTest?.();
+
+        document.getElementById(
+            'mockup-preview-layout-fix'
+        )?.remove();
+
+        // =====================================================
+        // 2. SHOPIFY GALLERY & DESIGN INPUTS
+        // =====================================================
+
+        const gallery = document.querySelector('media-gallery');
+
+        if (!gallery) {
+            console.error('Gallery not found');
+            return;
+        }
+
+        const radioSelector =
+            'fieldset.product-form__input--pill input[type="radio"]';
+
+        const getDesignInputs = () =>
+            [...document.querySelectorAll(radioSelector)]
+                .filter(input =>
+                    input.name.trim().startsWith('Design')
+                );
+
+        const getSelectedDesign = () =>
+            getDesignInputs().find(input => input.checked)?.value;
+
+        // =====================================================
+        // 3. READ ORIGINAL SHOPIFY GALLERY
+        // =====================================================
+
+        const slides = [...gallery.querySelectorAll(
+            '.product__media-list > .product__media-item'
+        )];
+
+        const thumbnails = [...gallery.querySelectorAll(
+            '.thumbnail-list > .thumbnail-list__item'
+        )];
+
+        // Preserve original gallery order.
+        const media = thumbnails.map(thumb => {
+            const slide = slides.find(
+                s => s.dataset.mediaId === thumb.dataset.target
+            );
+
+            const img = slide?.querySelector('img');
+            const thumbImg = thumb.querySelector('img');
+
+            return {
+                id: thumb.dataset.target,
+                url:
+                    img?.getAttribute('src') ||
+                    img?.getAttribute('data-src') ||
+                    thumbImg?.getAttribute('src') ||
+                    thumbImg?.currentSrc ||
+                    ''
+            };
+        }).filter(item => item.url);
+
+        const designInputs = getDesignInputs();
+
+        // =====================================================
+        // 4. VALIDATE GALLERY STRUCTURE
+        // =====================================================
+
+        const EXPECTED_DESIGNS = 15;
+        const EXPECTED_IMAGES = 46;
+        const MOCKUPS_PER_DESIGN = 3;
+
+        if (
+            media.length !== EXPECTED_IMAGES ||
+            designInputs.length !== EXPECTED_DESIGNS
+        ) {
+            console.error(
+                'Invalid gallery structure:',
+                `Expected ${EXPECTED_IMAGES} images and ` +
+                `${EXPECTED_DESIGNS} designs, ` +
+                `found ${media.length} images and ` +
+                `${designInputs.length} designs.`
+            );
+            return;
+        }
+
+        // =====================================================
+        // 5. MAP DESIGNS TO GALLERY IMAGES
+        // =====================================================
+
+        // Gallery structure:
+        //
+        // Image 1       -> General product image
+        // Images 2-4    -> Design 2
+        // Images 5-7    -> Design 3
+        // Images 8-10   -> Design 4
+        // ...
+        // Images 44-46  -> Design 16
+        //
+        // No overlap between groups.
+
+        const groups = {};
+
+        designInputs.forEach(input => {
+            const match = input.value.match(/^design\s+(\d+)$/i);
+
+            if (!match) {
+                console.warn('Unrecognized Design:', input.value);
+                return;
+            }
+
+            const designNumber = Number(match[1]);
+
+            if (designNumber < 2 || designNumber > 16) {
+                console.warn('Design out of range:', input.value);
+                return;
+            }
+
+            // Zero-based indexing:
+            // Design 2  -> media[1..3]
+            // Design 3  -> media[4..6]
+            // Design 16 -> media[43..45]
+
+            const startIndex =
+                1 + (designNumber - 2) * MOCKUPS_PER_DESIGN;
+
+            const mockups = media.slice(
+                startIndex,
+                startIndex + MOCKUPS_PER_DESIGN
+            );
+
+            if (mockups.length !== MOCKUPS_PER_DESIGN) {
+                console.warn(`Missing mockups for ${input.value}`);
+                return;
+            }
+
+            groups[input.value] = mockups;
+        });
+
+        if (Object.keys(groups).length !== EXPECTED_DESIGNS) {
+            console.error(
+                'Could not map all 15 designs:',
+                Object.keys(groups)
+            );
+            return;
+        }
+
+        // =====================================================
+        // 6. CREATE CUSTOM MOCKUP GALLERY
+        // =====================================================
+
+        const preview = document.createElement('div');
+        preview.id = 'mockup-preview-test';
+
+        preview.innerHTML = `
+    <div class="mockup-main">
+      <img alt="Selected mockup">
+    </div>
+    <div class="mockup-thumbnails"></div>
+  `;
+
+        // =====================================================
+        // 7. GALLERY CSS
+        // =====================================================
+
+        const style = document.createElement('style');
+        style.id = 'mockup-preview-test-style';
+
+        style.textContent = `
+    #mockup-preview-test {
+      width: 100%;
+    }
+
+    #mockup-preview-test .mockup-main {
+      width: 100%;
+      aspect-ratio: 1;
+      background: white;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    #mockup-preview-test .mockup-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #mockup-preview-test .mockup-thumbnails {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+      margin-top: 16px !important;
+      width: 100% !important;
+    }
+
+    #mockup-preview-test .mockup-thumbnails button {
+      width: 180px !important;
+      height: 180px !important;
+      flex: 0 0 180px !important;
+      padding: 4px !important;
+      background: white;
+      border: 1px solid #aaa;
+      border-radius: 6px !important;
+      box-sizing: border-box !important;
+      cursor: pointer;
+    }
+
+    #mockup-preview-test .mockup-thumbnails button.active {
+      border: 2px solid #111;
+    }
+
+    #mockup-preview-test .mockup-thumbnails button img {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+    }
+  `;
+
+        document.head.appendChild(style);
+        gallery.insertAdjacentElement('afterend', preview);
+
+        // =====================================================
+        // 8. HIDE ORIGINAL GALLERY
+        // =====================================================
+
+        const originalDisplay = gallery.style.display;
+        gallery.style.display = 'none';
+
+        const mainImg =
+            preview.querySelector('.mockup-main img');
+
+        const thumbContainer =
+            preview.querySelector('.mockup-thumbnails');
+
+        let activeDesign = null;
+        let activeMockupIndex = 0;
+
+        // =====================================================
+        // 9. RENDER SELECTED DESIGN
+        // =====================================================
+
+        function renderGallery(design, force = false) {
+            const group = groups[design];
+
+            if (!group) {
+                preview.style.display = 'none';
+                gallery.style.display = originalDisplay;
+                activeDesign = null;
+                return;
+            }
+
+            gallery.style.display = 'none';
+            preview.style.display = 'block';
+
+            // Reset mockup only when Design changes.
+            if (design !== activeDesign) {
+                activeDesign = design;
+                activeMockupIndex = 0;
+                force = true;
+            }
+
+            if (!force) return;
+
+            thumbContainer.replaceChildren();
+
+            group.forEach((item, index) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+
+                const img = document.createElement('img');
+                img.src = item.url;
+                img.alt = `${design} - Mockup ${index + 1}`;
+
+                button.appendChild(img);
+
+                button.addEventListener('click', () => {
+                    activeMockupIndex = index;
+                    updateActiveMockup();
+                });
+
+                thumbContainer.appendChild(button);
+            });
+
+            updateActiveMockup();
+
+            console.log(
+                'Gallery switched to:',
+                design,
+                group.map(item => item.id)
+            );
+        }
+
+        // =====================================================
+        // 10. UPDATE ACTIVE MOCKUP
+        // =====================================================
+
+        function updateActiveMockup() {
+            const group = groups[activeDesign];
+
+            if (!group) return;
+
+            mainImg.src = group[activeMockupIndex].url;
+
+            [...thumbContainer.children].forEach(
+                (button, index) => {
+                    button.classList.toggle(
+                        'active',
+                        index === activeMockupIndex
+                    );
+                }
+            );
+        }
+
+        // =====================================================
+        // 11. SYNC SHOPIFY VARIANT SELECTION
+        // =====================================================
+
+        function syncSelectedDesign() {
+            const selected = getSelectedDesign();
+
+            if (selected !== activeDesign) {
+                renderGallery(selected);
+            }
+        }
+
+        function onChange(event) {
+            if (!event.target.matches(radioSelector)) return;
+
+            requestAnimationFrame(syncSelectedDesign);
+        }
+
+        document.addEventListener('change', onChange);
+
+        // Some Shopify themes update asynchronously.
+        function onClick(event) {
+            if (!event.target.closest(
+                'fieldset.product-form__input--pill label'
+            )) return;
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(syncSelectedDesign);
+            });
+        }
+
+        document.addEventListener('click', onClick);
+
+        // Observe programmatic checked attribute changes.
+        const observer = new MutationObserver(() => {
+            syncSelectedDesign();
+        });
+
+        getDesignInputs().forEach(input => {
+            observer.observe(input, {
+                attributes: true,
+                attributeFilter: ['checked']
+            });
+        });
+
+        // =====================================================
+        // 12. CLEANUP FUNCTION
+        // =====================================================
+
+        window.cleanupMockupTest = () => {
+            document.removeEventListener('change', onChange);
+            document.removeEventListener('click', onClick);
+
+            observer.disconnect();
+
+            gallery.style.display = originalDisplay;
+
+            preview.remove();
+            style.remove();
+
+            document.getElementById(
+                'mockup-preview-layout-fix'
+            )?.remove();
+
+            delete window.cleanupMockupTest;
+
+            console.log('Mockup test removed');
+        };
+
+        // =====================================================
+        // 13. INITIALIZE
+        // =====================================================
+
+        renderGallery(getSelectedDesign(), true);
+
+        console.log(
+            'Variant gallery initialized successfully:',
+            Object.keys(groups).length,
+            'designs,',
+            media.length,
+            'images'
+        );
+
+        console.table(
+            Object.entries(groups).map(([design, mockups]) => ({
+                Design: design,
+                Images: mockups.map(
+                    item => media.indexOf(item) + 1
+                ).join(', ')
+            }))
+        );
+    };
+
+
 
 function getImageURLs() {
   
@@ -464,6 +881,9 @@ document.addEventListener("DOMContentLoaded", ()   => {
   observeAndRemovePredictiveGroups();
   observeAndRemoveProductCount();
   observeAndCleanSearchInput();
+  // New: Design-specific mockup gallery - STILL NEED BACKEND
+  // initVariantMockupGallery();
+
 
 });
 

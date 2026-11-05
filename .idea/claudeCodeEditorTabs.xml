@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ClaudeCodeEditorTabs">
-    <option name="activeSessionId" value="8d761933-863a-4fbb-838f-c0d437cc4799" />
+    <option name="activeSessionId" value="4c5ad680-1fbf-4d61-88e2-ec2d7cdae637" />
     <option name="openSessionIds">
       <list>
-        <option value="8d761933-863a-4fbb-838f-c0d437cc4799" />
+        <option value="bede4c45-e241-4a58-8759-debe526f4a6c" />
+        <option value="4c5ad680-1fbf-4d61-88e2-ec2d7cdae637" />
       </list>
     </option>
     <option name="sessionPaths">
       <map>
-        <entry key="8d761933-863a-4fbb-838f-c0d437cc4799" value="/sessions/f6f2e9f8-b9c8-44ae-8887-a43ca475a812" />
+        <entry key="4c5ad680-1fbf-4d61-88e2-ec2d7cdae637" value="/sessions/1969b064-8dce-45a1-a663-cd2c82647cf9" />
+        <entry key="bede4c45-e241-4a58-8759-debe526f4a6c" value="/sessions/70c7558b-e7e0-45a0-abd7-c52c069c1007" />
       </map>
     </option>
     <option name="sessionTitles">
       <map>
-        <entry key="8d761933-863a-4fbb-838f-c0d437cc4799" value="/init" />
+        <entry key="4c5ad680-1fbf-4d61-88e2-ec2d7cdae637" value="Hidden product page images" />
+        <entry key="bede4c45-e241-4a58-8759-debe526f4a6c" value="Here is the PC version of the product page, where" />
       </map>
     </option>
   </component>
