@@ -103,7 +103,7 @@
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail",
-        "media_position": "right",
+        "media_position": "left",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "show",
         "hide_variants": false,
