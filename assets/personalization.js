@@ -393,33 +393,15 @@ function observeAndCleanSearchInput() {
                     img?.getAttribute('data-src') ||
                     thumbImg?.getAttribute('src') ||
                     thumbImg?.currentSrc ||
-                    ''
+                    '',
+                alt: img?.getAttribute('alt') || ''
             };
         }).filter(item => item.url);
 
         const designInputs = getDesignInputs();
 
-        // =====================================================
-        // 4. VALIDATE GALLERY STRUCTURE
-        // =====================================================
-
-        const EXPECTED_DESIGNS = 15;
-        const EXPECTED_IMAGES = 46;
-        const MOCKUPS_PER_DESIGN = 3;
-
-        if (
-            media.length !== EXPECTED_IMAGES ||
-            designInputs.length !== EXPECTED_DESIGNS
-        ) {
-            console.error(
-                'Invalid gallery structure:',
-                `Expected ${EXPECTED_IMAGES} images and ` +
-                `${EXPECTED_DESIGNS} designs, ` +
-                `found ${media.length} images and ` +
-                `${designInputs.length} designs.`
-            );
-            return;
-        }
+      
+        
 
         // =====================================================
         // 5. MAP DESIGNS TO GALLERY IMAGES
@@ -433,7 +415,6 @@ function observeAndCleanSearchInput() {
         // Images 8-10   -> Design 4
         // ...
         // Images 44-46  -> Design 16
-        //
         // No overlap between groups.
 
         const groups = {};
@@ -453,30 +434,27 @@ function observeAndCleanSearchInput() {
                 return;
             }
 
-            // Zero-based indexing:
-            // Design 2  -> media[1..3]
-            // Design 3  -> media[4..6]
-            // Design 16 -> media[43..45]
+            // Mockups of this design have alt "<title> | Design N - i"
+            const prefix = `| Design ${designNumber} - `;
 
-            const startIndex =
-                1 + (designNumber - 2) * MOCKUPS_PER_DESIGN;
+            const mockups = media
+                .filter(item => item.alt.includes(prefix))
+                .sort((a, b) =>
+                    Number(a.alt.split(' - ').pop()) -
+                    Number(b.alt.split(' - ').pop())
+                );
 
-            const mockups = media.slice(
-                startIndex,
-                startIndex + MOCKUPS_PER_DESIGN
-            );
-
-            if (mockups.length !== MOCKUPS_PER_DESIGN) {
-                console.warn(`Missing mockups for ${input.value}`);
+            if (mockups.length === 0) {
+                console.warn(`No mockups for ${input.value}`);
                 return;
             }
 
             groups[input.value] = mockups;
         });
 
-        if (Object.keys(groups).length !== EXPECTED_DESIGNS) {
+        if (Object.keys(groups).length === 0) {
             console.error(
-                'Could not map all 15 designs:',
+                'No mockups with alt found, keeping the original gallery.',
                 Object.keys(groups)
             );
             return;
@@ -881,8 +859,10 @@ document.addEventListener("DOMContentLoaded", ()   => {
   observeAndRemovePredictiveGroups();
   observeAndRemoveProductCount();
   observeAndCleanSearchInput();
-  // New: Design-specific mockup gallery - STILL NEED BACKEND
-  // initVariantMockupGallery();
+  // New: Design-specific mockup gallery (groups gallery images by alt "Design N - i").
+  if (document.querySelector('media-gallery')) {
+    initVariantMockupGallery();
+  }
 
 
 });
