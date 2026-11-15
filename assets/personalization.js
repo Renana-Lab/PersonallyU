@@ -470,6 +470,8 @@ function observeAndCleanSearchInput() {
         preview.innerHTML = `
     <div class="mockup-main">
       <img alt="Selected mockup">
+        <button type="button" class="mockup-arrow mockup-prev" aria-label="Previous mockup">‹</button>
+        <button type="button" class="mockup-arrow mockup-next" aria-label="Next mockup">›</button>
     </div>
     <div class="mockup-thumbnails"></div>
   `;
@@ -492,8 +494,30 @@ function observeAndCleanSearchInput() {
       background: white;
       border-radius: 5px;
       overflow: hidden;
+      position: relative;
+    }
+      #mockup-preview-test .mockup-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
     }
 
+    #mockup-preview-test .mockup-prev {
+      left: 12px;
+    }
+
+    #mockup-preview-test .mockup-next {
+      right: 12px;
+    }
     #mockup-preview-test .mockup-main img {
       width: 100%;
       height: 100%;
@@ -552,7 +576,19 @@ function observeAndCleanSearchInput() {
 
         let activeDesign = null;
         let activeMockupIndex = 0;
+        const prevButton = preview.querySelector('.mockup-prev');
+        const nextButton = preview.querySelector('.mockup-next');
 
+        function moveMockup(step) {
+            const group = groups[activeDesign];
+            if (!group) return;
+
+            activeMockupIndex = (activeMockupIndex + step + group.length) % group.length;
+            updateActiveMockup();
+        }
+
+        prevButton.addEventListener('click', () => moveMockup(-1));
+        nextButton.addEventListener('click', () => moveMockup(1));
         // =====================================================
         // 9. RENDER SELECTED DESIGN
         // =====================================================
@@ -578,6 +614,9 @@ function observeAndCleanSearchInput() {
             }
 
             if (!force) return;
+            const showArrows = group.length > 1;
+            prevButton.style.display = showArrows ? '' : 'none';
+            nextButton.style.display = showArrows ? '' : 'none';
 
             thumbContainer.replaceChildren();
 
