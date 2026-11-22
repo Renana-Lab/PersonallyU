@@ -1,0 +1,141 @@
+{%- comment -%}
+  Christmas bar: a festive strip at the top of the site with a countdown.
+  - Text and the last order date are settings (Online Store > Customize > Christmas bar).
+  - After the last order date the bar hides itself.
+  - To turn it off: hide or remove the section in Customize.
+{%- endcomment -%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+
+<style>
+  #ChristmasBar-{{ section.id }} {
+    --xmas-red: #9e2b34;
+    --xmas-green: #2f4a3a;
+    --xmas-cream: #f6efe0;
+    background: var(--xmas-red);
+    color: var(--xmas-cream);
+    border-bottom: 3px solid var(--xmas-green);
+    padding: 10px 16px;
+  }
+  #ChristmasBar-{{ section.id }} .xmas-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    text-align: center;
+  }
+  #ChristmasBar-{{ section.id }} .xmas-headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1.2;
+  }
+  #ChristmasBar-{{ section.id }} .xmas-sub {
+    font-size: 14px;
+    letter-spacing: .05em;
+  }
+  #ChristmasBar-{{ section.id }} .xmas-timer {
+    display: inline-flex;
+    gap: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  #ChristmasBar-{{ section.id }} .xmas-unit {
+    display: grid;
+    justify-items: center;
+    min-width: 42px;
+    padding: 3px 6px;
+    border-radius: 6px;
+    background: var(--xmas-green);
+    color: var(--xmas-cream);
+  }
+  #ChristmasBar-{{ section.id }} .xmas-num { font-size: 17px; font-weight: 700; }
+  #ChristmasBar-{{ section.id }} .xmas-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+  @media (max-width: 749px) {
+    #ChristmasBar-{{ section.id }} { padding: 8px 10px; }
+    #ChristmasBar-{{ section.id }} .xmas-inner { gap: 6px 10px; }
+    #ChristmasBar-{{ section.id }} .xmas-sub { display: none; }
+    #ChristmasBar-{{ section.id }} .xmas-headline { font-size: 18px; }
+    #ChristmasBar-{{ section.id }} .xmas-timer { gap: 4px; }
+    #ChristmasBar-{{ section.id }} .xmas-unit { min-width: 32px; padding: 2px 4px; border-radius: 4px; }
+    #ChristmasBar-{{ section.id }} .xmas-num { font-size: 14px; }
+    #ChristmasBar-{{ section.id }} .xmas-label { font-size: 8px; letter-spacing: .08em; }
+  }
+</style>
+
+<div id="ChristmasBar-{{ section.id }}" data-deadline="{{ section.settings.deadline | escape }}" hidden>
+  <div class="xmas-inner">
+    {%- if section.settings.headline != blank -%}
+      <span class="xmas-headline">{{ section.settings.headline | escape }}</span>
+    {%- endif -%}
+    {%- if section.settings.subtext != blank -%}
+      <span class="xmas-sub">{{ section.settings.subtext | escape }}</span>
+    {%- endif -%}
+    <span class="xmas-timer" aria-label="Time left to order"></span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var bar = document.getElementById('ChristmasBar-{{ section.id }}');
+    if (!bar) return;
+    // Last order day, until 23:59 US Eastern time
+    var deadline = new Date(bar.dataset.deadline + 'T23:59:00-05:00');
+    if (isNaN(deadline)) return; // date not set correctly: keep the bar hidden
+    var timer = bar.querySelector('.xmas-timer');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function render() {
+      var ms = deadline - new Date();
+      if (ms <= 0) { bar.hidden = true; return false; }
+      var d = Math.floor(ms / 864e5); ms -= d * 864e5;
+      var h = Math.floor(ms / 36e5); ms -= h * 36e5;
+      var m = Math.floor(ms / 6e4); ms -= m * 6e4;
+      var s = Math.floor(ms / 1e3);
+      timer.innerHTML = [[d, 'days'], [h, 'hrs'], [m, 'min'], [s, 'sec']].map(function (p) {
+        return '<span class="xmas-unit"><span class="xmas-num">' + pad(p[0]) +
+               '</span><span class="xmas-label">' + p[1] + '</span></span>';
+      }).join('');
+      bar.hidden = false;
+      return true;
+    }
+    if (render()) {
+      var id = setInterval(function () { if (!render()) clearInterval(id); }, 1000);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Christmas bar",
+  "tag": "section",
+  "class": "christmas-bar-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Christmas is almost here — order now so it arrives in time"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Text (optional, hidden on phones)"
+    },
+    {
+      "type": "text",
+      "id": "deadline",
+      "label": "Last order date (YYYY-MM-DD)",
+      "info": "The countdown ends at 23:59 US Eastern time on this date, and the bar hides itself after it.",
+      "default": "2026-12-10"
+    }
+  ],
+  "presets": [
+    { "name": "Christmas bar" }
+  ]
+}
+{% endschema %}
