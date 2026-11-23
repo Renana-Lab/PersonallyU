@@ -534,10 +534,12 @@ function observeAndCleanSearchInput() {
       width: 100% !important;
     }
 
-    #mockup-preview-test .mockup-thumbnails button {
-      width: 180px !important;
-      height: 180px !important;
-      flex: 0 0 180px !important;
+      #mockup-preview-test .mockup-thumbnails button {
+      width: calc((100% - 24px) / 3) !important;
+      max-width: 180px !important;
+      height: auto !important;
+      aspect-ratio: 1 !important;
+      flex: 0 1 auto !important;
       padding: 4px !important;
       background: white;
       border: 1px solid #aaa;
