@@ -30,18 +30,20 @@
 {%- endunless -%}
 {%- if card_product and card_product != empty -%}
   {%- liquid
-    # PersonallyU: on personality products (after the quiz), show the product
+    # PersonallyU: on all personality products, including NO (no quiz), show the product
     # with the AMB print (armadillo) instead of the blank product image.
     # Mockup media alt text is "<title> | Design N - i".
-    # AMB products: AMB is Design 2. Other personality products: AMB is Design 4.
-    # Products of "no-" (no quiz) keep the blank image.
+    # AMB products: AMB is Design 2. NO products (no quiz): AMB is Design 3.
+    # Other personality products: AMB is Design 4.
     assign card_media = card_product.featured_media
     assign personality_prefix = card_product.handle | split: '-' | first | upcase
-    assign personality_codes = 'EX,IN,SY,CR,MS,AN,SD,CL,OM,CM,AMB' | split: ','
+    assign personality_codes = 'EX,IN,SY,CR,MS,AN,SD,CL,OM,CM,AMB,NO' | split: ','
     if personality_codes contains personality_prefix
       assign amb_mockup_alt = '| Design 4 - 1'
       if personality_prefix == 'AMB'
         assign amb_mockup_alt = '| Design 2 - 1'
+      elsif personality_prefix == 'NO'
+        assign amb_mockup_alt = '| Design 3 - 1'
       endif
       for media_item in card_product.media
         if media_item.alt contains amb_mockup_alt
