@@ -134,7 +134,7 @@
         ".banner__box .buttons {display: flex; justify-content: center; gap: 11px;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/image_1.jpg",
+        "image": "shopify://shop_images/Gemini_Generated_Image_cislabcislabcisl.jpg",
         "image_2": "shopify://shop_images/WhatsApp_Image_2026-02-01_at_11.07.19.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
@@ -142,7 +142,7 @@
         "show_text_box": true,
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-1",
-        "image_behavior": "fixed",
+        "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": true
